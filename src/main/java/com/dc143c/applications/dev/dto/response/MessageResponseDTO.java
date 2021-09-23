@@ -1,4 +1,4 @@
-package com.dc143c.applications.dev.dto;
+package com.dc143c.applications.dev.dto.response;
 
 import lombok.Builder;
 import lombok.Data;
