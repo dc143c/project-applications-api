@@ -18,6 +18,8 @@ import org.hibernate.validator.constraints.URL;
 @NoArgsConstructor
 public class ApplicationDTO {
 
+    private Long id;
+
     @NotEmpty
     @Size(min = 3, max = 20)
     private String name;

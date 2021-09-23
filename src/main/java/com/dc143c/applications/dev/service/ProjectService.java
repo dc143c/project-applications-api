@@ -6,6 +6,7 @@ import com.dc143c.applications.dev.entity.Project;
 import com.dc143c.applications.dev.mapper.ProjectMapper;
 import com.dc143c.applications.dev.repository.ProjectRepository;
 import com.dc143c.applications.dev.service.exception.ProjectNotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,6 +19,7 @@ public class ProjectService {
 
     private final ProjectMapper projectMapper = ProjectMapper.INSTANCE;
 
+    @Autowired
     public ProjectService(ProjectRepository projectRepository) {
         this.projectRepository = projectRepository;
     }
@@ -28,10 +30,7 @@ public class ProjectService {
     public MessageResponseDTO createProject(ProjectDTO projectDTO){
         Project projectToSave = projectMapper.toModel(projectDTO);
         Project savedProject = projectRepository.save(projectToSave);
-        return MessageResponseDTO
-                .builder()
-                .message("Project generated successfully on ID: " + savedProject.getId())
-                .build();
+        return createResponseMessage(savedProject, "Project created on ID: ");
     }
 
     public List<ProjectDTO> listAll() {
@@ -49,7 +48,22 @@ public class ProjectService {
         projectRepository.deleteById(id);
     }
 
+    public MessageResponseDTO updateById(Long id, ProjectDTO projectDTO) throws ProjectNotFoundException {
+        Project projectFound =  verifyIfExists(id);
+        Project newProject = projectMapper.toModel(projectDTO);
+        System.out.println(newProject);
+        Project updatedProject = projectRepository.save(newProject);
+        System.out.println(updatedProject);
+        projectRepository.save(updatedProject);
+        return createResponseMessage(projectFound, "Project updated on ID: ");
+    }
+
+    private MessageResponseDTO createResponseMessage(Project projectFound, String message) {
+        return MessageResponseDTO.builder().message(message + projectFound.getId()).build();
+    }
+
     private Project verifyIfExists(Long id) throws ProjectNotFoundException {
         return projectRepository.findById(id).orElseThrow(() -> new ProjectNotFoundException(id));
     }
+
 }

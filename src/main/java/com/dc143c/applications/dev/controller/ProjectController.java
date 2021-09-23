@@ -7,6 +7,7 @@ import com.dc143c.applications.dev.service.ProjectService;
 import com.dc143c.applications.dev.service.exception.ProjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -51,4 +52,9 @@ public class ProjectController {
         System.out.println("Project deleted: " + id);
     }
 
+    @PutMapping("{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public MessageResponseDTO updateById(@PathVariable Long id, @RequestBody @Valid ProjectDTO projectDTO) throws ProjectNotFoundException {
+        return projectService.updateById(id, projectDTO);
+    }
 }

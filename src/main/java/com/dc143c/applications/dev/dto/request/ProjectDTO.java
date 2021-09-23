@@ -18,6 +18,8 @@ import java.util.List;
 @NoArgsConstructor
 public class ProjectDTO {
 
+    private Long id;
+
     @NotEmpty
     @Size(min = 3, max = 20)
     private String name;
