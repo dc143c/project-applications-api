@@ -1,4 +1,4 @@
-package com.dc143c.applications.dev.service.exception;
+package com.dc143c.applications.dev.utils.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

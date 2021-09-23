@@ -2,12 +2,10 @@ package com.dc143c.applications.dev.controller;
 
 import com.dc143c.applications.dev.dto.request.ProjectDTO;
 import com.dc143c.applications.dev.dto.response.MessageResponseDTO;
-import com.dc143c.applications.dev.entity.Project;
-import com.dc143c.applications.dev.service.ProjectService;
-import com.dc143c.applications.dev.service.exception.ProjectNotFoundException;
+import com.dc143c.applications.dev.utils.ProjectService;
+import com.dc143c.applications.dev.utils.exception.ProjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;

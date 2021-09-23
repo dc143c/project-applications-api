@@ -33,6 +33,6 @@ public class ProjectDTO {
     private String gitURL;
 
     @Valid
-    private List<Application> applicationList;
+    private List<ApplicationDTO> applicationList;
 
 }

@@ -1,16 +1,15 @@
-package com.dc143c.applications.dev.service;
+package com.dc143c.applications.dev.utils;
 
 import com.dc143c.applications.dev.dto.request.ProjectDTO;
 import com.dc143c.applications.dev.dto.response.MessageResponseDTO;
 import com.dc143c.applications.dev.entity.Project;
 import com.dc143c.applications.dev.mapper.ProjectMapper;
 import com.dc143c.applications.dev.repository.ProjectRepository;
-import com.dc143c.applications.dev.service.exception.ProjectNotFoundException;
+import com.dc143c.applications.dev.utils.exception.ProjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
