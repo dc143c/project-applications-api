@@ -40,7 +40,16 @@ public class ProjectService {
     }
 
     public ProjectDTO findById(Long id) throws ProjectNotFoundException {
-        Project projectFound = projectRepository.findById(id).orElseThrow(() -> new ProjectNotFoundException(id));
+        Project projectFound = verifyIfExists(id);
         return projectMapper.toDTO(projectFound);
+    }
+
+    public void deleteById(Long id) throws ProjectNotFoundException {
+        Project projectFound = verifyIfExists(id);
+        projectRepository.deleteById(id);
+    }
+
+    private Project verifyIfExists(Long id) throws ProjectNotFoundException {
+        return projectRepository.findById(id).orElseThrow(() -> new ProjectNotFoundException(id));
     }
 }

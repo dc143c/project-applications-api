@@ -44,4 +44,11 @@ public class ProjectController {
         return projectService.findById(id);
     }
 
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteById(@PathVariable Long id) throws ProjectNotFoundException {
+        projectService.deleteById(id);
+        System.out.println("Project deleted: " + id);
+    }
+
 }
