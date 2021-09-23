@@ -15,11 +15,12 @@ By DELETE request on ```https://project-application-api.herokuapp.com/api/v1/pro
 
 The applications are set up with few informations, where links are always unique, types are required and divided as four types: ENTERPRISE, FULLTIME, PARTTIME, VOLUNTEER - and status, that are also divided as two types: OPEN and CLOSED.
 Application example:
-```	{
-		"name": "FullStack Developer",
-		"type": "FULLTIME",
-		"applicationURL": "linkedin.com/test/application_link"
-  }
+```
+{
+	"name": "FullStack Developer",
+	"type": "FULLTIME",
+	"applicationURL": "linkedin.com/test/application_link"
+ }
 ```
 As projects can have many applications, the Project Object have as requirements:
 Name, Owner and gitURL.
