@@ -1,6 +1,7 @@
 package com.dc143c.applications.dev.entity;
 
 
+import com.dc143c.applications.dev.enums.ApplicationStatus;
 import com.dc143c.applications.dev.enums.ApplicationType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -29,4 +30,8 @@ public class Application {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private ApplicationType type;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private ApplicationStatus status;
 }

@@ -1,5 +1,6 @@
 package com.dc143c.applications.dev.dto.request;
 
+import com.dc143c.applications.dev.enums.ApplicationStatus;
 import com.dc143c.applications.dev.enums.ApplicationType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -30,4 +31,7 @@ public class ApplicationDTO {
 
     @Enumerated(EnumType.STRING)
     private ApplicationType type;
+
+    @Enumerated(EnumType.STRING)
+    private ApplicationStatus status;
 }
