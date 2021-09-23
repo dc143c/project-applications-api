@@ -51,9 +51,7 @@ public class ProjectService {
     public MessageResponseDTO updateById(Long id, ProjectDTO projectDTO) throws ProjectNotFoundException {
         Project projectFound =  verifyIfExists(id);
         Project newProject = projectMapper.toModel(projectDTO);
-        System.out.println(newProject);
         Project updatedProject = projectRepository.save(newProject);
-        System.out.println(updatedProject);
         projectRepository.save(updatedProject);
         return createResponseMessage(projectFound, "Project updated on ID: ");
     }
